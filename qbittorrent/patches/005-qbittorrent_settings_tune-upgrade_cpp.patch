@@ -1,0 +1,12 @@
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/app/upgrade.cpp
+--- a/src/app/upgrade.cpp
++++ b/src/app/upgrade.cpp
+@@ -249,7 +249,7 @@
+ 
+     const QVector<DefaultValue> changedDefaults
+     {
+-        {QLatin1String {"BitTorrent/Session/QueueingSystemEnabled"}, true, false}
++        {QLatin1String {"BitTorrent/Session/QueueingSystemEnabled"}, false, true}
+     };
+ 
+     SettingsStorage *settingsStorage {SettingsStorage::instance()};

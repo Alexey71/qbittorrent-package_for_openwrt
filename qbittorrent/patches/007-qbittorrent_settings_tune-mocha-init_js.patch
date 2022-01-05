@@ -1,0 +1,12 @@
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/webui/www/private/scripts/mocha-init.js
+--- a/src/webui/www/private/scripts/mocha-init.js
++++ b/src/webui/www/private/scripts/mocha-init.js
+@@ -163,7 +163,7 @@
+             paddingVertical: 0,
+             paddingHorizontal: 0,
+             width: loadWindowWidth(id, 700),
+-            height: loadWindowHeight(id, 600),
++            height: loadWindowHeight(id, 505),
+             onResize: function() {
+                 saveWindowSize(id);
+             }

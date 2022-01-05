@@ -1,0 +1,112 @@
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/webui/www/private/scripts/dynamicTable.js
+--- a/src/webui/www/private/scripts/dynamicTable.js
++++ b/src/webui/www/private/scripts/dynamicTable.js
+@@ -887,29 +887,29 @@
+         initColumns: function() {
+             this.newColumn('priority', '', '#', 30, true);
+             this.newColumn('state_icon', 'cursor: default', '', 22, true);
+-            this.newColumn('name', '', 'QBT_TR(Name)QBT_TR[CONTEXT=TransferListModel]', 200, true);
+-            this.newColumn('size', '', 'QBT_TR(Size)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('total_size', '', 'QBT_TR(Total Size)QBT_TR[CONTEXT=TransferListModel]', 100, false);
++            this.newColumn('name', '', 'QBT_TR(Name)QBT_TR[CONTEXT=TransferListModel]', 401, true);
++            this.newColumn('size', '', 'QBT_TR(Size)QBT_TR[CONTEXT=TransferListModel]', 80, true);
++            this.newColumn('amount_left', '', 'QBT_TR(Remaining)QBT_TR[CONTEXT=TransferListModel]', 80, true);
++            this.newColumn('uploaded', '', 'QBT_TR(Uploaded)QBT_TR[CONTEXT=TransferListModel]', 80, true);
+             this.newColumn('progress', '', 'QBT_TR(Done)QBT_TR[CONTEXT=TransferListModel]', 85, true);
+-            this.newColumn('status', '', 'QBT_TR(Status)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('num_seeds', '', 'QBT_TR(Seeds)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('num_leechs', '', 'QBT_TR(Peers)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('dlspeed', '', 'QBT_TR(Down Speed)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('upspeed', '', 'QBT_TR(Up Speed)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('eta', '', 'QBT_TR(ETA)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('ratio', '', 'QBT_TR(Ratio)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('category', '', 'QBT_TR(Category)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('tags', '', 'QBT_TR(Tags)QBT_TR[CONTEXT=TransferListModel]', 100, true);
+-            this.newColumn('added_on', '', 'QBT_TR(Added On)QBT_TR[CONTEXT=TransferListModel]', 100, true);
++            this.newColumn('status', '', 'QBT_TR(Status)QBT_TR[CONTEXT=TransferListModel]', 105, true);
++            this.newColumn('num_seeds', '', 'QBT_TR(Seeds)QBT_TR[CONTEXT=TransferListModel]', 70, true);
++            this.newColumn('num_leechs', '', 'QBT_TR(Peers)QBT_TR[CONTEXT=TransferListModel]', 70, true);
++            this.newColumn('dlspeed', '', 'QBT_TR(Down Speed)QBT_TR[CONTEXT=TransferListModel]', 80, true);
++            this.newColumn('upspeed', '', 'QBT_TR(Up Speed)QBT_TR[CONTEXT=TransferListModel]', 80, true);
++            this.newColumn('eta', '', 'QBT_TR(ETA)QBT_TR[CONTEXT=TransferListModel]', 90, true);
++            this.newColumn('total_size', '', 'QBT_TR(Total Size)QBT_TR[CONTEXT=TransferListModel]', 100, false);
++            this.newColumn('ratio', '', 'QBT_TR(Ratio)QBT_TR[CONTEXT=TransferListModel]', 100, false);
++            this.newColumn('category', '', 'QBT_TR(Category)QBT_TR[CONTEXT=TransferListModel]', 100, false);
++            this.newColumn('tags', '', 'QBT_TR(Tags)QBT_TR[CONTEXT=TransferListModel]', 100, false);
++            this.newColumn('added_on', '', 'QBT_TR(Added On)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('completion_on', '', 'QBT_TR(Completed On)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('tracker', '', 'QBT_TR(Tracker)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('dl_limit', '', 'QBT_TR(Down Limit)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('up_limit', '', 'QBT_TR(Up Limit)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('downloaded', '', 'QBT_TR(Downloaded)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+-            this.newColumn('uploaded', '', 'QBT_TR(Uploaded)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('downloaded_session', '', 'QBT_TR(Session Download)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('uploaded_session', '', 'QBT_TR(Session Upload)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+-            this.newColumn('amount_left', '', 'QBT_TR(Remaining)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('time_active', '', 'QBT_TR(Time Active)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('save_path', '', 'QBT_TR(Save path)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+             this.newColumn('completed', '', 'QBT_TR(Completed)QBT_TR[CONTEXT=TransferListModel]', 100, false);
+@@ -1471,19 +1471,19 @@
+         Extends: DynamicTable,
+ 
+         initColumns: function() {
+-            this.newColumn('country', '', 'QBT_TR(Country/Region)QBT_TR[CONTEXT=PeerListWidget]', 22, true);
+-            this.newColumn('ip', '', 'QBT_TR(IP)QBT_TR[CONTEXT=PeerListWidget]', 80, true);
+-            this.newColumn('port', '', 'QBT_TR(Port)QBT_TR[CONTEXT=PeerListWidget]', 35, true);
+-            this.newColumn('connection', '', 'QBT_TR(Connection)QBT_TR[CONTEXT=PeerListWidget]', 50, true);
+-            this.newColumn('flags', '', 'QBT_TR(Flags)QBT_TR[CONTEXT=PeerListWidget]', 50, true);
+-            this.newColumn('client', '', 'QBT_TR(Client)QBT_TR[CONTEXT=PeerListWidget]', 140, true);
+-            this.newColumn('progress', '', 'QBT_TR(Progress)QBT_TR[CONTEXT=PeerListWidget]', 50, true);
+-            this.newColumn('dl_speed', '', 'QBT_TR(Down Speed)QBT_TR[CONTEXT=PeerListWidget]', 50, true);
+-            this.newColumn('up_speed', '', 'QBT_TR(Up Speed)QBT_TR[CONTEXT=PeerListWidget]', 50, true);
+-            this.newColumn('downloaded', '', 'QBT_TR(Downloaded)QBT_TR[CONTEXT=PeerListWidget]', 50, true);
+-            this.newColumn('uploaded', '', 'QBT_TR(Uploaded)QBT_TR[CONTEXT=PeerListWidget]', 50, true);
+-            this.newColumn('relevance', '', 'QBT_TR(Relevance)QBT_TR[CONTEXT=PeerListWidget]', 30, true);
+-            this.newColumn('files', '', 'QBT_TR(Files)QBT_TR[CONTEXT=PeerListWidget]', 100, true);
++            this.newColumn('country', '', 'QBT_TR(Country/Region)QBT_TR[CONTEXT=PeerListWidget]', 110, true);
++            this.newColumn('ip', '', 'QBT_TR(IP)QBT_TR[CONTEXT=PeerListWidget]', 135, true);
++            this.newColumn('port', '', 'QBT_TR(Port)QBT_TR[CONTEXT=PeerListWidget]', 80, true);
++            this.newColumn('connection', '', 'QBT_TR(Connection)QBT_TR[CONTEXT=PeerListWidget]', 100, true);
++            this.newColumn('flags', '', 'QBT_TR(Flags)QBT_TR[CONTEXT=PeerListWidget]', 109, true);
++            this.newColumn('client', '', 'QBT_TR(Client)QBT_TR[CONTEXT=PeerListWidget]', 187, true);
++            this.newColumn('progress', '', 'QBT_TR(Progress)QBT_TR[CONTEXT=PeerListWidget]', 92, true);
++            this.newColumn('dl_speed', '', 'QBT_TR(Down Speed)QBT_TR[CONTEXT=PeerListWidget]', 130, true);
++            this.newColumn('up_speed', '', 'QBT_TR(Up Speed)QBT_TR[CONTEXT=PeerListWidget]', 130, true);
++            this.newColumn('downloaded', '', 'QBT_TR(Downloaded)QBT_TR[CONTEXT=PeerListWidget]', 100, true);
++            this.newColumn('uploaded', '', 'QBT_TR(Uploaded)QBT_TR[CONTEXT=PeerListWidget]', 100, true);
++            this.newColumn('relevance', '', 'QBT_TR(Relevance)QBT_TR[CONTEXT=PeerListWidget]', 30, false);
++            this.newColumn('files', '', 'QBT_TR(Files)QBT_TR[CONTEXT=PeerListWidget]', 100, false);
+ 
+             this.columns['country'].dataProperties.push('country_code');
+             this.columns['flags'].dataProperties.push('flags_desc');
+@@ -1736,8 +1736,8 @@
+         Extends: DynamicTable,
+ 
+         initColumns: function() {
+-            this.newColumn('tier', '', 'QBT_TR(Tier)QBT_TR[CONTEXT=TrackerListWidget]', 35, true);
+-            this.newColumn('url', '', 'QBT_TR(URL)QBT_TR[CONTEXT=TrackerListWidget]', 250, true);
++            this.newColumn('tier', '', 'QBT_TR(Tier)QBT_TR[CONTEXT=TrackerListWidget]', 88, true);
++            this.newColumn('url', '', 'QBT_TR(URL)QBT_TR[CONTEXT=TrackerListWidget]', 485, true);
+             this.newColumn('status', '', 'QBT_TR(Status)QBT_TR[CONTEXT=TrackerListWidget]', 125, true);
+             this.newColumn('peers', '', 'QBT_TR(Peers)QBT_TR[CONTEXT=TrackerListWidget]', 75, true);
+             this.newColumn('seeds', '', 'QBT_TR(Seeds)QBT_TR[CONTEXT=TrackerListWidget]', 75, true);
+@@ -1810,13 +1810,13 @@
+         },
+ 
+         initColumns: function() {
+-            this.newColumn('checked', '', '', 50, true);
+-            this.newColumn('name', '', 'QBT_TR(Name)QBT_TR[CONTEXT=TrackerListWidget]', 300, true);
+-            this.newColumn('size', '', 'QBT_TR(Size)QBT_TR[CONTEXT=TrackerListWidget]', 75, true);
+-            this.newColumn('progress', '', 'QBT_TR(Progress)QBT_TR[CONTEXT=TrackerListWidget]', 100, true);
++            this.newColumn('checked', '', '', 60, true);
++            this.newColumn('name', '', 'QBT_TR(Name)QBT_TR[CONTEXT=TrackerListWidget]', 686, true);
++            this.newColumn('size', '', 'QBT_TR(Size)QBT_TR[CONTEXT=TrackerListWidget]', 80, true);
++            this.newColumn('progress', '', 'QBT_TR(Progress)QBT_TR[CONTEXT=TrackerListWidget]', 137, true);
+             this.newColumn('priority', '', 'QBT_TR(Download Priority)QBT_TR[CONTEXT=TrackerListWidget]', 150, true);
+-            this.newColumn('remaining', '', 'QBT_TR(Remaining)QBT_TR[CONTEXT=TrackerListWidget]', 75, true);
+-            this.newColumn('availability', '', 'QBT_TR(Availability)QBT_TR[CONTEXT=TrackerListWidget]', 75, true);
++            this.newColumn('remaining', '', 'QBT_TR(Remaining)QBT_TR[CONTEXT=TrackerListWidget]', 80, true);
++            this.newColumn('availability', '', 'QBT_TR(Availability)QBT_TR[CONTEXT=TrackerListWidget]', 80, true);
+ 
+             this.initColumnsFunctions();
+         },

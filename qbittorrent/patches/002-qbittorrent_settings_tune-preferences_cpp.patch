@@ -1,0 +1,41 @@
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/base/preferences.cpp
+--- a/src/base/preferences.cpp
++++ b/src/base/preferences.cpp
+@@ -118,7 +118,7 @@
+ // General options
+ QString Preferences::getLocale() const
+ {
+-    const auto localeName = value<QString>("Preferences/General/Locale");
++    const auto localeName = value<QString>("Preferences/General/Locale", QLatin1String("ru_RU"));
+     return (localeName.isEmpty() ? QLocale::system().name() : localeName);
+ }
+ 
+@@ -543,7 +543,7 @@
+ 
+ bool Preferences::isWebUiLocalAuthEnabled() const
+ {
+-    return value("Preferences/WebUI/LocalHostAuth", true);
++    return value("Preferences/WebUI/LocalHostAuth", false);
+ }
+ 
+ void Preferences::setWebUiLocalAuthEnabled(const bool enabled)
+@@ -637,7 +637,7 @@
+ 
+ QString Preferences::getWebUiUsername() const
+ {
+-    return value<QString>("Preferences/WebUI/Username", QLatin1String("admin"));
++    return value<QString>("Preferences/WebUI/Username", QLatin1String("openwrt"));
+ }
+ 
+ void Preferences::setWebUiUsername(const QString &username)
+@@ -647,8 +647,8 @@
+ 
+ QByteArray Preferences::getWebUIPassword() const
+ {
+-    // default: adminadmin
+-    const QByteArray defaultValue = "ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==";
++    // default: openwrt
++    const QByteArray defaultValue = "i128e0SAiHiCepXpYkVXzA==:AgO8y/Rjb92f/FwyE3WxqUM6bSV3FesBxaewL8Pbe30hF+bO+83979v0Ws1ITwEoWYamyQYsPbiuDkhpfcniBA==";
+     return value("Preferences/WebUI/Password_PBKDF2", defaultValue);
+ }
+ 

@@ -1,0 +1,23 @@
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/webui/www/private/scripts/client.js
+--- a/src/webui/www/private/scripts/client.js
++++ b/src/webui/www/private/scripts/client.js
+@@ -284,13 +284,16 @@
+         $('desktopFooterWrapper').addClass('invisible');
+     }
+ 
+-    let speedInTitle = LocalPreferences.get('speed_in_browser_title_bar') == "true";
++    // Show Speed in Title Bar is enabled by default
++    let speedInTitle = true;
++    if (LocalPreferences.get('speed_in_browser_title_bar') !== null)
++        speedInTitle = LocalPreferences.get('speed_in_browser_title_bar') == "true";
+     if (!speedInTitle)
+         $('speedInBrowserTitleBarLink').firstChild.style.opacity = '0';
+ 
+     // After showing/hiding the toolbar + status bar
+-    let showSearchEngine = LocalPreferences.get('show_search_engine') !== "false";
+-    let showRssReader = LocalPreferences.get('show_rss_reader') !== "false";
++    let showSearchEngine = LocalPreferences.get('show_search_engine') == "true";
++    let showRssReader = LocalPreferences.get('show_rss_reader') == "true";
+ 
+     // After Show Top Toolbar
+     MochaUI.Desktop.setDesktopSize();

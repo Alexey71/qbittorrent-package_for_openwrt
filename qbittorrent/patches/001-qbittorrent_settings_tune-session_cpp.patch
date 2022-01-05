@@ -1,0 +1,66 @@
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/base/bittorrent/session.cpp
+--- a/src/base/bittorrent/session.cpp
++++ b/src/base/bittorrent/session.cpp
+@@ -332,10 +332,10 @@
+     , m_connectionSpeed(BITTORRENT_SESSION_KEY("ConnectionSpeed"), 30)
+     , m_socketBacklogSize(BITTORRENT_SESSION_KEY("SocketBacklogSize"), 30)
+     , m_isAnonymousModeEnabled(BITTORRENT_SESSION_KEY("AnonymousModeEnabled"), false)
+-    , m_isQueueingEnabled(BITTORRENT_SESSION_KEY("QueueingSystemEnabled"), false)
+-    , m_maxActiveDownloads(BITTORRENT_SESSION_KEY("MaxActiveDownloads"), 3, lowerLimited(-1))
+-    , m_maxActiveUploads(BITTORRENT_SESSION_KEY("MaxActiveUploads"), 3, lowerLimited(-1))
+-    , m_maxActiveTorrents(BITTORRENT_SESSION_KEY("MaxActiveTorrents"), 5, lowerLimited(-1))
++    , m_isQueueingEnabled(BITTORRENT_SESSION_KEY("QueueingSystemEnabled"), true)
++    , m_maxActiveDownloads(BITTORRENT_SESSION_KEY("MaxActiveDownloads"), 1, lowerLimited(-1))
++    , m_maxActiveUploads(BITTORRENT_SESSION_KEY("MaxActiveUploads"), 1, lowerLimited(-1))
++    , m_maxActiveTorrents(BITTORRENT_SESSION_KEY("MaxActiveTorrents"), 1, lowerLimited(-1))
+     , m_ignoreSlowTorrentsForQueueing(BITTORRENT_SESSION_KEY("IgnoreSlowTorrentsForQueueing"), false)
+     , m_downloadRateForSlowTorrents(BITTORRENT_SESSION_KEY("SlowTorrentsDownloadRate"), 2)
+     , m_uploadRateForSlowTorrents(BITTORRENT_SESSION_KEY("SlowTorrentsUploadRate"), 2)
+@@ -354,7 +354,7 @@
+     , m_maxUploads(BITTORRENT_SESSION_KEY("MaxUploads"), 20, lowerLimited(0, -1))
+     , m_maxConnectionsPerTorrent(BITTORRENT_SESSION_KEY("MaxConnectionsPerTorrent"), 100, lowerLimited(0, -1))
+     , m_maxUploadsPerTorrent(BITTORRENT_SESSION_KEY("MaxUploadsPerTorrent"), 4, lowerLimited(0, -1))
+-    , m_btProtocol(BITTORRENT_SESSION_KEY("BTProtocol"), BTProtocol::Both
++    , m_btProtocol(BITTORRENT_SESSION_KEY("BTProtocol"), BTProtocol::TCP
+         , clampValue(BTProtocol::Both, BTProtocol::UTP))
+     , m_isUTPRateLimited(BITTORRENT_SESSION_KEY("uTPRateLimited"), true)
+     , m_utpMixedMode(BITTORRENT_SESSION_KEY("uTPMixedMode"), MixedModeAlgorithm::TCP
+@@ -367,7 +367,7 @@
+     , m_isAddTrackersEnabled(BITTORRENT_SESSION_KEY("AddTrackersEnabled"), false)
+     , m_additionalTrackers(BITTORRENT_SESSION_KEY("AdditionalTrackers"))
+     , m_globalMaxRatio(BITTORRENT_SESSION_KEY("GlobalMaxRatio"), -1, [](qreal r) { return r < 0 ? -1. : r;})
+-    , m_globalMaxSeedingMinutes(BITTORRENT_SESSION_KEY("GlobalMaxSeedingMinutes"), -1, lowerLimited(-1))
++    , m_globalMaxSeedingMinutes(BITTORRENT_SESSION_KEY("GlobalMaxSeedingMinutes"), 0, lowerLimited(-1))
+     , m_isAddTorrentPaused(BITTORRENT_SESSION_KEY("AddTorrentPaused"), false)
+     , m_torrentContentLayout(BITTORRENT_SESSION_KEY("TorrentContentLayout"), TorrentContentLayout::Original)
+     , m_isAppendExtensionEnabled(BITTORRENT_SESSION_KEY("AddExtensionToIncompleteFiles"), false)
+@@ -375,13 +375,13 @@
+     , m_isPreallocationEnabled(BITTORRENT_SESSION_KEY("Preallocation"), false)
+     , m_torrentExportDirectory(BITTORRENT_SESSION_KEY("TorrentExportDirectory"))
+     , m_finishedTorrentExportDirectory(BITTORRENT_SESSION_KEY("FinishedTorrentExportDirectory"))
+-    , m_globalDownloadSpeedLimit(BITTORRENT_SESSION_KEY("GlobalDLSpeedLimit"), 0, lowerLimited(0))
+-    , m_globalUploadSpeedLimit(BITTORRENT_SESSION_KEY("GlobalUPSpeedLimit"), 0, lowerLimited(0))
+-    , m_altGlobalDownloadSpeedLimit(BITTORRENT_SESSION_KEY("AlternativeGlobalDLSpeedLimit"), 10, lowerLimited(0))
+-    , m_altGlobalUploadSpeedLimit(BITTORRENT_SESSION_KEY("AlternativeGlobalUPSpeedLimit"), 10, lowerLimited(0))
++    , m_globalDownloadSpeedLimit(BITTORRENT_SESSION_KEY("GlobalDLSpeedLimit"), 97000, lowerLimited(0))
++    , m_globalUploadSpeedLimit(BITTORRENT_SESSION_KEY("GlobalUPSpeedLimit"), 500, lowerLimited(0))
++    , m_altGlobalDownloadSpeedLimit(BITTORRENT_SESSION_KEY("AlternativeGlobalDLSpeedLimit"), 7700, lowerLimited(0))
++    , m_altGlobalUploadSpeedLimit(BITTORRENT_SESSION_KEY("AlternativeGlobalUPSpeedLimit"), 500, lowerLimited(0))
+     , m_isAltGlobalSpeedLimitEnabled(BITTORRENT_SESSION_KEY("UseAlternativeGlobalSpeedLimit"), false)
+     , m_isBandwidthSchedulerEnabled(BITTORRENT_SESSION_KEY("BandwidthSchedulerEnabled"), false)
+-    , m_saveResumeDataInterval(BITTORRENT_SESSION_KEY("SaveResumeDataInterval"), 60)
++    , m_saveResumeDataInterval(BITTORRENT_SESSION_KEY("SaveResumeDataInterval"), 5)
+     , m_port(BITTORRENT_SESSION_KEY("Port"), -1)
+     , m_networkInterface(BITTORRENT_SESSION_KEY("Interface"))
+     , m_networkInterfaceName(BITTORRENT_SESSION_KEY("InterfaceName"))
+@@ -393,8 +393,8 @@
+     , m_seedChokingAlgorithm(BITTORRENT_SESSION_KEY("SeedChokingAlgorithm"), SeedChokingAlgorithm::FastestUpload
+         , clampValue(SeedChokingAlgorithm::RoundRobin, SeedChokingAlgorithm::AntiLeech))
+     , m_storedTags(BITTORRENT_SESSION_KEY("Tags"))
+-    , m_maxRatioAction(BITTORRENT_SESSION_KEY("MaxRatioAction"), Pause)
+-    , m_savePath(BITTORRENT_SESSION_KEY("DefaultSavePath"), specialFolderLocation(SpecialFolder::Downloads), Utils::Fs::toUniformPath)
++    , m_maxRatioAction(BITTORRENT_SESSION_KEY("MaxRatioAction"), Remove)
++    , m_savePath(BITTORRENT_SESSION_KEY("DefaultSavePath"), "/mnt/sda1/Видео/", Utils::Fs::toUniformPath)
+     , m_downloadPath(BITTORRENT_SESSION_KEY("TempPath"), specialFolderLocation(SpecialFolder::Downloads) + QLatin1String("/temp"), Utils::Fs::toUniformPath)
+     , m_isSubcategoriesEnabled(BITTORRENT_SESSION_KEY("SubcategoriesEnabled"), false)
+     , m_isDownloadPathEnabled(BITTORRENT_SESSION_KEY("TempPathEnabled"), false)
