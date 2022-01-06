@@ -84,7 +84,7 @@ define Build/Configure
 			-no-cups \
 			-no-dbus \
 			-no-directfb \
-			-no-dtls\
+			-no-dtls \
 			-no-egl \
 			-no-eglfs \
 			-no-feature-getentropy \
