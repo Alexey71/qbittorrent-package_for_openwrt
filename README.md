@@ -1,4 +1,4 @@
-# qBittorrent для OpenWRT (mipsel)
+# qBittorrent для OpenWrt (mipsel)
 Пакет qBittorrent и его зависимости для OpenWrt
 
 ## Обозначения папок
@@ -25,8 +25,8 @@
 Протестировано на `Xiaomi Mi WiFi Router 3G v1` и `OpenWrt SNAPSHOT`
 
 ========================================================================
-# qBittorrent for OpenWRT (mipsel)
-OpenWRT package Makefiles for qBittorrent and its dependencies
+# qBittorrent for OpenWrt (mipsel)
+OpenWrt package Makefiles for qBittorrent and its dependencies
 
 ## Folder designations
 Package location in the configuration is:
