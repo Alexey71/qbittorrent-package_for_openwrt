@@ -1,4 +1,4 @@
-Link: https://raw.githubusercontent.com/qbittorrent/qBittorrent/master/src/base/utils/net.cpp
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/base/utils/net.cpp
 --- a/src/base/utils/net.cpp
 +++ b/src/base/utils/net.cpp
 @@ -65,6 +65,9 @@

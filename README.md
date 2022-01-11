@@ -1,5 +1,5 @@
 # qBittorrent для OpenWRT (mipsel)
-Пакет qBittorrent и его зависимости для OpenWRT
+Пакет qBittorrent и его зависимости для OpenWrt
 
 ## Обозначения папок
 Расположение пакетов в конфигураторе такое:
@@ -22,7 +22,7 @@
 По умолчанию папка настроек qBittorrent создается по пути `/etc/qBittorrent`. Вы можете изменить путь создания папки, для этого откройте файл `/etc/init.d/qbittorrent` и измените строку `ARGS="--profile=/etc"`
 
 ## Протестировано
-Протестировано на `Xiaomi Mi WiFi Router 3G v1` и `OpenWRT Snapshot`
+Протестировано на `Xiaomi Mi WiFi Router 3G v1` и `OpenWrt SNAPSHOT`
 
 ========================================================================
 # qBittorrent for OpenWRT (mipsel)
@@ -49,4 +49,4 @@ Password: openwrt
 By default, the qBittorrent settings folder is created on path `/etc/qBittorrent`. You can change the folder path, To do this, open the file `/etc/init.d/qbittorrent` and change the line `ARGS="--profile=/etc"`
 
 ## Tested
-Tested on `Xiaomi Mi WiFi Router 3G v1` and `OpenWRT Snapshot`
+Tested on `Xiaomi Mi WiFi Router 3G v1` and `OpenWrt SNAPSHOT`

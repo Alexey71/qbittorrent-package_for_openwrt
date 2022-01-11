@@ -169,11 +169,11 @@ define Build/Configure
 endef
 
 define Build/Compile
-	$(MAKE) -j5 -C $(PKG_BUILD_DIR)
+	$(MAKE) -j6 -C $(PKG_BUILD_DIR)
 endef
 
 define Build/InstallDev
-	$(MAKE) -C $(PKG_BUILD_DIR) install
+	$(MAKE) -j6 -C $(PKG_BUILD_DIR) install
 	$(CP) $(PKG_BUILD_DIR)/qtbase/bin/qt.conf $(TOOLCHAIN_DIR)/bin
 	$(RM) $(TOOLCHAIN_DIR)/bin/qt{diag,paths,plugininfo}
 endef
