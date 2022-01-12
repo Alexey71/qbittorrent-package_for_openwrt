@@ -6,7 +6,7 @@ START=98
 STOP=01
 
 DAEMON="/usr/bin/qbittorrent-nox"
-ARGS="--profile=/tmp"
+ARGS="--profile=/etc"
 
 start_service() {
 	procd_open_instance
