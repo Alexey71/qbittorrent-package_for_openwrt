@@ -1,0 +1,12 @@
+Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/app/application.cpp
+--- a/src/app/application.cpp
++++ b/src/app/application.cpp
+@@ -206,7 +206,7 @@
+ 
+ bool Application::isFileLoggerEnabled() const
+ {
+-    return m_storeFileLoggerEnabled.get(true);
++    return m_storeFileLoggerEnabled.get(false);
+ }
+ 
+ void Application::setFileLoggerEnabled(const bool value)
