@@ -1,7 +1,8 @@
 Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/app/application.cpp
+Commit: 8114c11d58d3bf9669a7ac8a5f0d7c15e3dc10fa
 --- a/src/app/application.cpp
 +++ b/src/app/application.cpp
-@@ -206,7 +206,7 @@
+@@ -221,7 +221,7 @@
  
  bool Application::isFileLoggerEnabled() const
  {
