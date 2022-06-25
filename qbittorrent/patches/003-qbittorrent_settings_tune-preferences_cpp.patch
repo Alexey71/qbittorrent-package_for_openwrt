@@ -1,41 +1,42 @@
 Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/base/preferences.cpp
+Commit: 86b6bcc1d9f05d3d05769fc84692f85292a9c00a
 --- a/src/base/preferences.cpp
 +++ b/src/base/preferences.cpp
-@@ -118,7 +118,7 @@
+@@ -106,7 +106,7 @@
  // General options
  QString Preferences::getLocale() const
  {
--    const auto localeName = value<QString>("Preferences/General/Locale");
-+    const auto localeName = value<QString>("Preferences/General/Locale", QLatin1String("ru_RU"));
+-    const auto localeName = value<QString>(u"Preferences/General/Locale"_qs);
++    const auto localeName = value<QString>(u"Preferences/General/Locale"_qs, u"ru_RU"_qs);
      return (localeName.isEmpty() ? QLocale::system().name() : localeName);
  }
  
-@@ -543,7 +543,7 @@
+@@ -521,7 +521,7 @@
  
  bool Preferences::isWebUiLocalAuthEnabled() const
  {
--    return value("Preferences/WebUI/LocalHostAuth", true);
-+    return value("Preferences/WebUI/LocalHostAuth", false);
+-    return value(u"Preferences/WebUI/LocalHostAuth"_qs, true);
++    return value(u"Preferences/WebUI/LocalHostAuth"_qs, false);
  }
  
  void Preferences::setWebUiLocalAuthEnabled(const bool enabled)
-@@ -637,7 +637,7 @@
+@@ -616,7 +616,7 @@
  
  QString Preferences::getWebUiUsername() const
  {
--    return value<QString>("Preferences/WebUI/Username", QLatin1String("admin"));
-+    return value<QString>("Preferences/WebUI/Username", QLatin1String("openwrt"));
+-    return value<QString>(u"Preferences/WebUI/Username"_qs, u"admin"_qs);
++    return value<QString>(u"Preferences/WebUI/Username"_qs, u"openwrt"_qs);
  }
  
  void Preferences::setWebUiUsername(const QString &username)
-@@ -647,8 +647,8 @@
+@@ -626,8 +626,8 @@
  
  QByteArray Preferences::getWebUIPassword() const
  {
 -    // default: adminadmin
--    const QByteArray defaultValue = "ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==";
+-    const auto defaultValue = QByteArrayLiteral("ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==");
 +    // default: openwrt
-+    const QByteArray defaultValue = "i128e0SAiHiCepXpYkVXzA==:AgO8y/Rjb92f/FwyE3WxqUM6bSV3FesBxaewL8Pbe30hF+bO+83979v0Ws1ITwEoWYamyQYsPbiuDkhpfcniBA==";
-     return value("Preferences/WebUI/Password_PBKDF2", defaultValue);
++    const auto defaultValue = QByteArrayLiteral("i128e0SAiHiCepXpYkVXzA==:AgO8y/Rjb92f/FwyE3WxqUM6bSV3FesBxaewL8Pbe30hF+bO+83979v0Ws1ITwEoWYamyQYsPbiuDkhpfcniBA==");
+     return value(u"Preferences/WebUI/Password_PBKDF2"_qs, defaultValue);
  }
  
