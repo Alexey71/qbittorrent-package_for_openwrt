@@ -1,14 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libqtorrent
-PKG_VERSION:=1.2.15
-PKG_RELEASE=2022-01-11
+PKG_VERSION:=1.2.17
+PKG_RELEASE=2022-06-09
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/arvidn/libtorrent.git
-PKG_SOURCE_DATE:=2022-01-11
-PKG_SOURCE_VERSION:=51c25e2487754d2521c6487297835ec37502281f
+PKG_SOURCE_DATE:=2022-06-09
+PKG_SOURCE_VERSION:=0f89ba1cec97a2034b81bbbe3e4209f7a006c662
 
 PKG_MAINTAINER:=David Yang <mmyangfl@gmail.com>
 PKG_LICENSE:=BSD-3-Clause
@@ -26,7 +26,7 @@ define Package/libqtorrent
 	$(call Package/libqtorrent/Default)
 	SECTION:=libs
 	CATEGORY:=Libraries
-	DEPENDS:=+boost-system +libopenssl +libatomic
+	DEPENDS:=+boost-system +libopenssl +libatomic +libstdcpp
 endef
 
 define Package/libqtorrent/description
@@ -34,11 +34,11 @@ define Package/libqtorrent/description
 endef
 
 define Download/try_signal
-	VERSION:=334fd139e2bb387017b42d36753a03935e3bca75
+	VERSION:=751a7e5a5be14892bcfdff1e63c653bcbf71cf39
 	SUBDIR:=deps/try_signal
 	FILE:=$(PKG_NAME)-try_signal-$$(VERSION).tar.xz
 	URL:=https://github.com/arvidn/try_signal.git
-	MIRROR_HASH:=c85d65352c20713cb6cfb005942b46ab7579dc7eef3b876666bff9347149d47f
+	MIRROR_HASH:=32a432e35e81c79f21c49744f00696c112e0deab45d15d91c61ceb63fe25a5f8
 	PROTO:=git
 endef
 $(eval $(call Download,try_signal))
