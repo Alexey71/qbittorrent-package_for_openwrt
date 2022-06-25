@@ -2,6 +2,15 @@ Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/app/application
 Commit: 8114c11d58d3bf9669a7ac8a5f0d7c15e3dc10fa
 --- a/src/app/application.cpp
 +++ b/src/app/application.cpp
+@@ -207,7 +207,7 @@
+ 
+ int Application::memoryWorkingSetLimit() const
+ {
+-    return m_storeMemoryWorkingSetLimit.get(512);
++    return m_storeMemoryWorkingSetLimit.get(256);
+ }
+ 
+ void Application::setMemoryWorkingSetLimit(const int size)
 @@ -221,7 +221,7 @@
  
  bool Application::isFileLoggerEnabled() const
