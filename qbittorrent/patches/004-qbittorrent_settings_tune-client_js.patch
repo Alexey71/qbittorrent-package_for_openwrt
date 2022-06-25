@@ -1,8 +1,9 @@
 Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/webui/www/private/scripts/client.js
+Commit: dbfd6a23680c2c8a3fbc2f09abdda544cabc2037
 --- a/src/webui/www/private/scripts/client.js
 +++ b/src/webui/www/private/scripts/client.js
-@@ -284,13 +284,16 @@
-         $('desktopFooterWrapper').addClass('invisible');
+@@ -298,13 +298,16 @@
+         $('filtersColumn_handle').addClass('invisible');
      }
  
 -    let speedInTitle = LocalPreferences.get('speed_in_browser_title_bar') == "true";
