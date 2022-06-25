@@ -2,13 +2,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qbittorrent
 PKG_VERSION:=4.5.0
-PKG_RELEASE=2022-01-20
+PKG_RELEASE=2022-06-25
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE:=qBittorrent-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/qbittorrent/qBittorrent.git
-PKG_SOURCE_DATE:=2022-01-20
-PKG_SOURCE_VERSION:=1729b9f29c128a1b3a666c8936ce582d6a202347
+PKG_SOURCE_DATE:=2022-06-25
+PKG_SOURCE_VERSION:=f8a304abdc4f6342a9b77137e7c373dcd7cf87e2
 
 PKG_LICENSE:=GPL-2.0+
 PKG_LICENSE_FILES:=COPYING
@@ -24,7 +24,7 @@ define Package/qbittorrent
 	SECTION:=net
 	CATEGORY:=Network
 	SUBMENU:=BitTorrent
-	DEPENDS:=+libqt5-core +libqt5-network +libqt5-xml +libqt5-sql +libqtorrent
+	DEPENDS:=+boost +boost-system +libqt5-core +libqt5-network +libqt5-xml +libqt5-sql +libqtorrent
 	TITLE:=Bittorrent client programmed in C++ / Qt
 	URL:=https://www.qbittorrent.org/
 	PROVIDES:=qBittorrent
