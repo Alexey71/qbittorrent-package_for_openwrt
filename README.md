@@ -4,7 +4,7 @@
 ## Обозначения папок
 Расположение пакетов в конфигураторе такое:
 
-Пакет `libqt5` (libqt5-core, libqt5-network, libqt5-sql, libqt5-xml) версия 5.15.5, по пути `Libraries --> Qt5`
+Пакет `libqt5` (libqt5-core, libqt5-network, libqt5-sql, libqt5-xml) версия 5.15.12, по пути `Libraries --> Qt5`
 
 Пакет `libqtorrent` версия из последних исходников https://github.com/arvidn/libtorrent/commits/RC_1_2, по пути `Libraries --> libqtorrent`
 
@@ -31,7 +31,7 @@ OpenWrt package Makefiles for qBittorrent and its dependencies
 ## Folder designations
 Package location in the configuration is:
 
-Package `libqt5` (libqt5-core, libqt5-network, libqt5-sql, libqt5-xml) version 5.15.5, path `Libraries --> Qt5`
+Package `libqt5` (libqt5-core, libqt5-network, libqt5-sql, libqt5-xml) version 5.15.12, path `Libraries --> Qt5`
 
 Package `libqtorrent` version of the last source https://github.com/arvidn/libtorrent/commits/RC_1_2, path `Libraries --> libqtorrent`
 
