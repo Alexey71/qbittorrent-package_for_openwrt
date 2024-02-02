@@ -1,42 +1,31 @@
-Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/base/preferences.cpp
-Commit: 86b6bcc1d9f05d3d05769fc84692f85292a9c00a
+Link: https://github.com/qbittorrent/qBittorrent/blob/v4_6_x/src/base/preferences.cpp
+Commit: 786c09e981ba5b17affd2f02c73909b4f79c6d28
 --- a/src/base/preferences.cpp
 +++ b/src/base/preferences.cpp
-@@ -106,7 +106,7 @@
+@@ -95,7 +95,7 @@
  // General options
  QString Preferences::getLocale() const
  {
--    const auto localeName = value<QString>(u"Preferences/General/Locale"_qs);
-+    const auto localeName = value<QString>(u"Preferences/General/Locale"_qs, u"ru_RU"_qs);
+-    const auto localeName = value<QString>(u"Preferences/General/Locale"_s);
++    const auto localeName = value<QString>(u"Preferences/General/Locale"_s, u"ru_RU"_s);
      return (localeName.isEmpty() ? QLocale::system().name() : localeName);
  }
  
-@@ -521,7 +521,7 @@
+@@ -648,7 +648,7 @@
  
- bool Preferences::isWebUiLocalAuthEnabled() const
+ bool Preferences::isWebUILocalAuthEnabled() const
  {
--    return value(u"Preferences/WebUI/LocalHostAuth"_qs, true);
-+    return value(u"Preferences/WebUI/LocalHostAuth"_qs, false);
+-    return value(u"Preferences/WebUI/LocalHostAuth"_s, true);
++    return value(u"Preferences/WebUI/LocalHostAuth"_s, false);
  }
  
- void Preferences::setWebUiLocalAuthEnabled(const bool enabled)
-@@ -616,7 +616,7 @@
+ void Preferences::setWebUILocalAuthEnabled(const bool enabled)
+@@ -754,7 +754,7 @@
  
- QString Preferences::getWebUiUsername() const
+ QString Preferences::getWebUIUsername() const
  {
--    return value<QString>(u"Preferences/WebUI/Username"_qs, u"admin"_qs);
-+    return value<QString>(u"Preferences/WebUI/Username"_qs, u"openwrt"_qs);
+-    return value<QString>(u"Preferences/WebUI/Username"_s, u"admin"_s);
++    return value<QString>(u"Preferences/WebUI/Username"_s, u"openwrt"_s);
  }
  
- void Preferences::setWebUiUsername(const QString &username)
-@@ -626,8 +626,8 @@
- 
- QByteArray Preferences::getWebUIPassword() const
- {
--    // default: adminadmin
--    const auto defaultValue = QByteArrayLiteral("ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==");
-+    // default: openwrt
-+    const auto defaultValue = QByteArrayLiteral("i128e0SAiHiCepXpYkVXzA==:AgO8y/Rjb92f/FwyE3WxqUM6bSV3FesBxaewL8Pbe30hF+bO+83979v0Ws1ITwEoWYamyQYsPbiuDkhpfcniBA==");
-     return value(u"Preferences/WebUI/Password_PBKDF2"_qs, defaultValue);
- }
- 
+ void Preferences::setWebUIUsername(const QString &username)

@@ -1,8 +1,8 @@
-Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/webui/www/private/scripts/mocha-init.js
-Commit: dbfd6a23680c2c8a3fbc2f09abdda544cabc2037
+Link: https://github.com/qbittorrent/qBittorrent/blob/v4_6_x/src/webui/www/private/scripts/mocha-init.js
+Commit: 35e18498d9bde2292f4c0be793f0870385e54770
 --- a/src/webui/www/private/scripts/mocha-init.js
 +++ b/src/webui/www/private/scripts/mocha-init.js
-@@ -138,7 +138,7 @@
+@@ -140,7 +140,7 @@
              paddingVertical: 0,
              paddingHorizontal: 0,
              width: loadWindowWidth(id, 500),
@@ -11,7 +11,7 @@ Commit: dbfd6a23680c2c8a3fbc2f09abdda544cabc2037
              onResize: function() {
                  saveWindowSize(id);
              }
-@@ -164,7 +164,7 @@
+@@ -166,7 +166,7 @@
              paddingVertical: 0,
              paddingHorizontal: 0,
              width: loadWindowWidth(id, 700),

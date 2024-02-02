@@ -1,13 +1,13 @@
-Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/app/upgrade.cpp
-Commit: c6b772da11ea3515ab80a6711d13352d50a60531
+Link: https://github.com/qbittorrent/qBittorrent/blob/v4_6_x/src/app/upgrade.cpp
+Commit: 7ec80263e14a340395bf60f7da78c2cadd134b31
 --- a/src/app/upgrade.cpp
 +++ b/src/app/upgrade.cpp
-@@ -414,7 +414,7 @@
+@@ -497,7 +497,7 @@
  
      const DefaultValue changedDefaults[] =
      {
--        {u"BitTorrent/Session/QueueingSystemEnabled"_qs, true, false}
-+        {u"BitTorrent/Session/QueueingSystemEnabled"_qs, false, true}
+-        {u"BitTorrent/Session/QueueingSystemEnabled"_s, true, false}
++        {u"BitTorrent/Session/QueueingSystemEnabled"_s, false, true}
      };
  
      auto *settingsStorage = SettingsStorage::instance();

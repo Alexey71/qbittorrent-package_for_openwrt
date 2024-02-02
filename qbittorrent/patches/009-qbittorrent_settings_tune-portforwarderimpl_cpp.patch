@@ -1,13 +1,13 @@
 Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/base/bittorrent/portforwarderimpl.cpp
-Commit: c6b772da11ea3515ab80a6711d13352d50a60531
+Commit: 715a4f3eb63244bce7e466cce020cc04d503c52e
 --- a/src/base/bittorrent/portforwarderimpl.cpp
 +++ b/src/base/bittorrent/portforwarderimpl.cpp
-@@ -36,7 +36,7 @@
+@@ -34,7 +34,7 @@
  
- PortForwarderImpl::PortForwarderImpl(lt::session *provider, QObject *parent)
-     : Net::PortForwarder {parent}
--    , m_storeActive {u"Network/PortForwardingEnabled"_qs, true}
-+    , m_storeActive {u"Network/PortForwardingEnabled"_qs, false}
+ PortForwarderImpl::PortForwarderImpl(BitTorrent::SessionImpl *provider, QObject *parent)
+     : Net::PortForwarder(parent)
+-    , m_storeActive {u"Network/PortForwardingEnabled"_s, true}
++    , m_storeActive {u"Network/PortForwardingEnabled"_s, false}
      , m_provider {provider}
  {
      if (isEnabled())

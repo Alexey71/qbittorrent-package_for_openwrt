@@ -1,8 +1,8 @@
-Link: https://github.com/qbittorrent/qBittorrent/blob/master/src/webui/www/private/scripts/client.js
-Commit: dbfd6a23680c2c8a3fbc2f09abdda544cabc2037
+Link: https://github.com/qbittorrent/qBittorrent/blob/v4_6_x/src/webui/www/private/scripts/client.js
+Commit: 081eace057bfb1d18e375f4d224f04f8ee691ddc
 --- a/src/webui/www/private/scripts/client.js
 +++ b/src/webui/www/private/scripts/client.js
-@@ -298,13 +298,16 @@
+@@ -337,13 +337,16 @@
          $('filtersColumn_handle').addClass('invisible');
      }
  
@@ -19,6 +19,6 @@ Commit: dbfd6a23680c2c8a3fbc2f09abdda544cabc2037
 -    let showRssReader = LocalPreferences.get('show_rss_reader') !== "false";
 +    let showSearchEngine = LocalPreferences.get('show_search_engine') == "true";
 +    let showRssReader = LocalPreferences.get('show_rss_reader') == "true";
+     let showLogViewer = LocalPreferences.get('show_log_viewer') === 'true';
  
      // After Show Top Toolbar
-     MochaUI.Desktop.setDesktopSize();
