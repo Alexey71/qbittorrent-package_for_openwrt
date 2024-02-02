@@ -8,7 +8,7 @@
 
 Пакет `libqtorrent` версия из последних исходников https://github.com/arvidn/libtorrent/commits/RC_1_2, по пути `Libraries --> libqtorrent`
 
-Пакет `qbittorrent` версия из последних исходников https://github.com/qbittorrent/qBittorrent/commits/master, по пути `Network --> BitTorrent --> qbittorrent`
+Пакет `qbittorrent` версия из последних исходников https://github.com/qbittorrent/qBittorrent/commits/v4_6_x, по пути `Network --> BitTorrent --> qbittorrent`
 
 ## Как пользоваться
 После устаноки qBittorrent. Перейдите в настройки веб интерфейса:
@@ -35,7 +35,7 @@ Package `libqt5` (libqt5-core, libqt5-network, libqt5-sql, libqt5-xml) version 5
 
 Package `libqtorrent` version of the last source https://github.com/arvidn/libtorrent/commits/RC_1_2, path `Libraries --> libqtorrent`
 
-Package `qbittorrent` version of the last source https://github.com/qbittorrent/qBittorrent/commits/master, path `Network --> BitTorrent --> qbittorrent`
+Package `qbittorrent` version of the last source https://github.com/qbittorrent/qBittorrent/commits/v4_6_x/, path `Network --> BitTorrent --> qbittorrent`
 
 ## How to open
 After installing qBittorrent. Go to Web UI Settings 
