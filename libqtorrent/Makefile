@@ -1,14 +1,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libqtorrent
-PKG_VERSION:=1.2.18
-PKG_RELEASE=2022-10-24
+PKG_VERSION:=1.2.20
+PKG_RELEASE=2024-01-14
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/arvidn/libtorrent.git
-PKG_SOURCE_DATE:=2022-10-24
-PKG_SOURCE_VERSION:=cd05e947f6654e0a46f0385ab12c5bf446cce671
+PKG_SOURCE_DATE:=2024-01-14
+PKG_SOURCE_VERSION:=359ef9045c8904ddb41eb7cb75ca6c0735a7fe0b
 
 PKG_MAINTAINER:=David Yang <mmyangfl@gmail.com>
 PKG_LICENSE:=BSD-3-Clause
@@ -34,7 +34,7 @@ define Package/libqtorrent/description
 endef
 
 define Download/try_signal
-	VERSION:=751a7e5a5be14892bcfdff1e63c653bcbf71cf39
+	VERSION:=105cce59972f925a33aa6b1c3109e4cd3caf583d
 	SUBDIR:=deps/try_signal
 	FILE:=$(PKG_NAME)-try_signal-$$(VERSION).tar.xz
 	URL:=https://github.com/arvidn/try_signal.git
