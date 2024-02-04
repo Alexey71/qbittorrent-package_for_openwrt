@@ -29,3 +29,14 @@ Commit: 786c09e981ba5b17affd2f02c73909b4f79c6d28
  }
  
  void Preferences::setWebUIUsername(const QString &username)
+@@ -767,7 +767,9 @@
+ 
+ QByteArray Preferences::getWebUIPassword() const
+ {
+-    return value<QByteArray>(u"Preferences/WebUI/Password_PBKDF2"_s);
++    // default: openwrt
++    const auto defaultValue = QByteArrayLiteral("i128e0SAiHiCepXpYkVXzA==:AgO8y/Rjb92f/FwyE3WxqUM6bSV3FesBxaewL8Pbe30hF+bO+83979v0Ws1ITwEoWYamyQYsPbiuDkhpfcniBA==");
++    return value(u"Preferences/WebUI/Password_PBKDF2"_s, defaultValue);
+ }
+ 
+ void Preferences::setWebUIPassword(const QByteArray &password)

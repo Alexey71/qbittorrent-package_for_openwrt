@@ -17,15 +17,6 @@ Commit: 17b6dcfbef072cee3d7a57901f8ae9ce86459d0e
      , m_ignoreSlowTorrentsForQueueing(BITTORRENT_SESSION_KEY(u"IgnoreSlowTorrentsForQueueing"_s), false)
      , m_downloadRateForSlowTorrents(BITTORRENT_SESSION_KEY(u"SlowTorrentsDownloadRate"_s), 2)
      , m_uploadRateForSlowTorrents(BITTORRENT_SESSION_KEY(u"SlowTorrentsUploadRate"_s), 2)
-@@ -460,7 +460,7 @@
-     , m_maxUploads(BITTORRENT_SESSION_KEY(u"MaxUploads"_s), 20, lowerLimited(0, -1))
-     , m_maxConnectionsPerTorrent(BITTORRENT_SESSION_KEY(u"MaxConnectionsPerTorrent"_s), 100, lowerLimited(0, -1))
-     , m_maxUploadsPerTorrent(BITTORRENT_SESSION_KEY(u"MaxUploadsPerTorrent"_s), 4, lowerLimited(0, -1))
--    , m_btProtocol(BITTORRENT_SESSION_KEY(u"BTProtocol"_s), BTProtocol::Both
-+    , m_btProtocol(BITTORRENT_SESSION_KEY(u"BTProtocol"_s), BTProtocol::TCP
-         , clampValue(BTProtocol::Both, BTProtocol::UTP))
-     , m_isUTPRateLimited(BITTORRENT_SESSION_KEY(u"uTPRateLimited"_s), true)
-     , m_utpMixedMode(BITTORRENT_SESSION_KEY(u"uTPMixedMode"_s), MixedModeAlgorithm::TCP
 @@ -473,7 +473,7 @@
      , m_isAddTrackersEnabled(BITTORRENT_SESSION_KEY(u"AddTrackersEnabled"_s), false)
      , m_additionalTrackers(BITTORRENT_SESSION_KEY(u"AdditionalTrackers"_s))
@@ -55,14 +46,18 @@ Commit: 17b6dcfbef072cee3d7a57901f8ae9ce86459d0e
      , m_port(BITTORRENT_SESSION_KEY(u"Port"_s), -1)
      , m_networkInterface(BITTORRENT_SESSION_KEY(u"Interface"_s))
      , m_networkInterfaceName(BITTORRENT_SESSION_KEY(u"InterfaceName"_s))
-@@ -504,8 +504,8 @@
+@@ -504,11 +504,11 @@
      , m_seedChokingAlgorithm(BITTORRENT_SESSION_KEY(u"SeedChokingAlgorithm"_s), SeedChokingAlgorithm::FastestUpload
          , clampValue(SeedChokingAlgorithm::RoundRobin, SeedChokingAlgorithm::AntiLeech))
      , m_storedTags(BITTORRENT_SESSION_KEY(u"Tags"_s))
 -    , m_maxRatioAction(BITTORRENT_SESSION_KEY(u"MaxRatioAction"_s), Pause)
 -    , m_savePath(BITTORRENT_SESSION_KEY(u"DefaultSavePath"_s), specialFolderLocation(SpecialFolder::Downloads))
 +    , m_maxRatioAction(BITTORRENT_SESSION_KEY(u"MaxRatioAction"_s), Remove)
-+    , m_savePath(BITTORRENT_SESSION_KEY(u"DefaultSavePath"_s), Path(u"/mnt/sda1/Видео"_s))
++    , m_savePath(BITTORRENT_SESSION_KEY(u"DefaultSavePath"_s), Path(u"/mnt/hdd/Загрузки"_s))
      , m_downloadPath(BITTORRENT_SESSION_KEY(u"TempPath"_s), (savePath() / Path(u"temp"_s)))
      , m_isDownloadPathEnabled(BITTORRENT_SESSION_KEY(u"TempPathEnabled"_s), false)
-     , m_isSubcategoriesEnabled(BITTORRENT_SESSION_KEY(u"SubcategoriesEnabled"_s), false)
+-    , m_isSubcategoriesEnabled(BITTORRENT_SESSION_KEY(u"SubcategoriesEnabled"_s), false)
++    , m_isSubcategoriesEnabled(BITTORRENT_SESSION_KEY(u"SubcategoriesEnabled"_s), true)
+     , m_useCategoryPathsInManualMode(BITTORRENT_SESSION_KEY(u"UseCategoryPathsInManualMode"_s), false)
+     , m_isAutoTMMDisabledByDefault(BITTORRENT_SESSION_KEY(u"DisableAutoTMMByDefault"_s), true)
+     , m_isDisableAutoTMMWhenCategoryChanged(BITTORRENT_SESSION_KEY(u"DisableAutoTMMTriggers/CategoryChanged"_s), false)

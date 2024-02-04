@@ -2,6 +2,18 @@ Link: https://github.com/qbittorrent/qBittorrent/blob/v4_6_x/src/webui/www/priva
 Commit: 081eace057bfb1d18e375f4d224f04f8ee691ddc
 --- a/src/webui/www/private/scripts/client.js
 +++ b/src/webui/www/private/scripts/client.js
+@@ -90,9 +90,9 @@
+ loadSelectedTracker();
+ 
+ const getShowFiltersSidebar = function() {
+-    // Show Filters Sidebar is enabled by default
++    // Show Filters Sidebar is disable by default
+     const show = LocalPreferences.get('show_filters_sidebar');
+-    return (show === null) || (show === 'true');
++    return (show !== null) || (show === 'true');
+ };
+ 
+ // getHost emulate the GUI version `QString getHost(const QString &url)`
 @@ -337,13 +337,16 @@
          $('filtersColumn_handle').addClass('invisible');
      }
